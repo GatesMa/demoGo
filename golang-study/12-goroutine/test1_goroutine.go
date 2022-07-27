@@ -8,7 +8,7 @@ import (
 // 子routine
 func newTask() {
 	i := 0
-	for {
+	for ; i < 6; i++ {
 		i++
 		fmt.Printf("new Goroutie: i = %d\n", i)
 		time.Sleep(1 * time.Second)
@@ -21,7 +21,7 @@ func main() {
 	go newTask()
 
 	i := 0
-	for {
+	for ; i < 6; i++ {
 		i++
 		fmt.Printf("main goroutine: i = %d\n", i)
 		time.Sleep(1 * time.Second)

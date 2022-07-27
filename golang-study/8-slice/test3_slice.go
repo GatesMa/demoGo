@@ -17,7 +17,7 @@ func main() {
 	//slice1 := make([]int, 3)
 
 	fmt.Printf("len = %d, slice = %v\n", len(slice1), slice1)
-
+	fmt.Println("len ", len(slice1))
 	//判断一个silce是否为0
 	if slice1 == nil {
 		fmt.Println("slice1 是一个空切片")
