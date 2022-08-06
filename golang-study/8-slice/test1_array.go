@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-func printArray(myArray [4]int) {
+//printArray
+func PrintArray(myArray [4]int) {
 	//值拷贝
 
 	for index, value := range myArray {
@@ -33,7 +34,7 @@ func main() {
 	fmt.Printf("myArray2 types = %T\n", myArray2)
 	fmt.Printf("myArray3 types = %T\n", myArray3)
 
-	printArray(myArray3)
+	PrintArray(myArray3)
 	fmt.Println(" ------ ")
 	for index, value := range myArray3 {
 		fmt.Println("index = ", index, ", value = ", value)
