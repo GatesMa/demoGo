@@ -64,4 +64,33 @@ func main() {
 	var xxx = [][]int{{}}
 	fmt.Printf("%T \n", xxx)
 
+	fmt.Println("================================================")
+
+	var mapLit map[string]int
+	//var mapCreated map[string]float32
+	var mapAssigned map[string]int
+	mapLit = map[string]int{"one": 1, "two": 2}
+	mapCreated := make(map[string]float32)
+	mapAssigned = mapLit
+	mapCreated["key1"] = 4.5
+	mapCreated["key2"] = 3.14159
+	mapAssigned["two"] = 3
+	fmt.Printf("Map literal at \"one\" is: %d\n", mapLit["one"])
+	fmt.Printf("Map created at \"key2\" is: %f\n", mapCreated["key2"])
+	fmt.Printf("Map assigned at \"two\" is: %d\n", mapLit["two"])
+	fmt.Printf("Map literal at \"ten\" is: %d\n", mapLit["ten"])
+
+	var strMap map[string]string
+	fmt.Printf("%T %v %v\n", strMap, strMap, strMap == nil)
+	strMap = make(map[string]string)
+	fmt.Printf("%T %v %v\n", strMap, strMap, strMap == nil)
+	strMap["name"] = "gatesma"
+	fmt.Printf("%T %v\n", strMap, strMap)
+
+	var sliceMap = make(map[string]*[]int, 10)
+	sliceMap["666"] = &[]int{1, 2, 3}
+	fmt.Printf("666 in sliceMap = %v\n", *sliceMap["666"])
+	(*sliceMap["666"])[0] = 1234
+	fmt.Printf("666 in sliceMap = %v\n", *sliceMap["666"])
+
 }
