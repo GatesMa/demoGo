@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+	"sync"
+)
 
 func main() {
 
@@ -92,5 +96,43 @@ func main() {
 	fmt.Printf("666 in sliceMap = %v\n", *sliceMap["666"])
 	(*sliceMap["666"])[0] = 1234
 	fmt.Printf("666 in sliceMap = %v\n", *sliceMap["666"])
+
+	fmt.Println("================================================")
+	// 遍历map
+	rangeStrMap := make(map[string]string)
+	rangeStrMap["name"] = "gatesma"
+	rangeStrMap["hp"] = "100"
+	rangeStrMap["height"] = "199"
+	for k, v := range rangeStrMap {
+		fmt.Printf("%s %s\n", k, v)
+	}
+
+	var rangeStrSlice = []string{}
+	for k, _ := range rangeStrMap {
+		rangeStrSlice = append(rangeStrSlice, k)
+	}
+
+	sort.Strings(rangeStrSlice)
+
+	for k, v := range rangeStrSlice {
+		fmt.Printf("%d %s\n", k, v)
+	}
+
+	fmt.Println("=========================sync.Map=======================")
+
+	var scene sync.Map
+	// 将键值对保存到sync.Map
+	scene.Store("greece", 97)
+	scene.Store("london", 100)
+	scene.Store("egypt", "200")
+	// 从sync.Map中根据键取值
+	fmt.Println(scene.Load("london"))
+	// 根据键删除对应的键值对
+	scene.Delete("london")
+	// 遍历所有sync.Map中的键值对
+	scene.Range(func(k, v interface{}) bool {
+		fmt.Printf("iterate: %T %v %T %v\n", k, k, v, v)
+		return true
+	})
 
 }
