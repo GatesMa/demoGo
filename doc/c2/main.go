@@ -1,9 +1,11 @@
 package main
 
 import (
+	"container/list"
 	"fmt"
 	"sort"
 	"sync"
+	"unsafe"
 )
 
 func main() {
@@ -118,6 +120,10 @@ func main() {
 		fmt.Printf("%d %s\n", k, v)
 	}
 
+	rangeStrMapP := &rangeStrMap
+	fmt.Println(rangeStrMapP)
+	fmt.Println(*rangeStrMapP)
+
 	fmt.Println("=========================sync.Map=======================")
 
 	var scene sync.Map
@@ -134,5 +140,37 @@ func main() {
 		fmt.Printf("iterate: %T %v %T %v\n", k, k, v, v)
 		return true
 	})
+
+	fmt.Println("=========================list=======================")
+	l := list.New()
+	fmt.Printf("%T %v\n", l, l)
+	back := l.PushBack("1247120459")
+	l.InsertAfter("adaoifdhqaiof", back)
+	l.InsertAfter(121313, back)
+
+	for i := l.Front(); i != nil; i = i.Next() {
+		fmt.Printf("%v ", i.Value)
+	}
+
+	fmt.Println()
+
+	var p *struct{}
+	fmt.Println(unsafe.Sizeof(p)) // 8
+	var s []int
+	fmt.Println(unsafe.Sizeof(s)) // 24
+	var m map[int]bool
+	fmt.Println(unsafe.Sizeof(m)) // 8
+	var c chan string
+	fmt.Println(unsafe.Sizeof(c)) // 8
+	var f func()
+	fmt.Println(unsafe.Sizeof(f)) // 8
+	var i interface{}
+	fmt.Println(unsafe.Sizeof(i)) // 16
+
+	var pppppp map[int]bool
+	fmt.Println(pppppp)
+	fmt.Printf("%#v\n", pppppp)
+	var ppppp = new(map[string]int)
+	fmt.Println(ppppp)
 
 }
