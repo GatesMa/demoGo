@@ -4,5 +4,4 @@ Go 语言的常用流程控制有 if 和 for，而 switch 和 goto 主要是为�
 
 本章主要介绍了 Go 语言中的基本流程控制语句，包括分支语句（if 和 switch）、循环（for）和跳转（goto）语句。另外，还有循环控制语句（break 和 continue），前者的功能是中断循环或者跳出 switch 判断，后者的功能是继续 for 的下一个循环。
 
-
 ## Go语言if else（分支结构）
