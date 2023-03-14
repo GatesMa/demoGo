@@ -197,6 +197,10 @@ func main() {
 
 	fmt.Println(x1, y, z)
 
+	type NewInt = int32
+	var xxxxx NewInt = 123
+	fmt.Printf("xxxx: %d %T\n", xxxxx, xxxxx)
+
 }
 
 func swap(a *int, b *int) {
