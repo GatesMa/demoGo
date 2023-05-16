@@ -82,3 +82,30 @@ for key, value := range []int{1, 2, 3, 4} {
     fmt.Printf("key:%d  value:%d\n", key, value)
 }
 ```
+
+### 遍历通道（channel）——接收通道数据
+
+for range 可以遍历通道（channel），但是通道在遍历时，只输出一个值，即管道内的类型对应的数据。
+
+下面代码为我们展示了通道的遍历：
+
+```go
+c := make(chan int)
+go func() {
+    c <- 1
+    c <- 2
+    c <- 3
+    close(c)
+}()
+for v := range c {
+    fmt.Println(v)
+}
+```
+
+## Go语言switch case语句
+
+Go语言的 switch 要比C语言的更加通用，表达式不需要为常量，甚至不需要为整数，case 按照从上到下的顺序进行求值，直到找到匹配的项，如果 switch 没有表达式，则对 true 进行匹配，因此，可以将 if else-if else 改写成一个 switch。
+
+### 基本写法
+
+Go语言改进了 switch 的语法设计，case 与 case 之间是独立的代码块，不需要通过 break 语句跳出当前 case 代码块以避免执行到下一行，示例代码如下：

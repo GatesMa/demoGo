@@ -58,4 +58,15 @@ func main() {
 	time.Sleep(1000)
 	close(c)
 
+	var a = "hello"
+	switch a {
+	case "hello":
+		fmt.Println(1)
+		fmt.Println(3)
+	case "world":
+		fmt.Println(2)
+	default:
+		fmt.Println(0)
+	}
+
 }

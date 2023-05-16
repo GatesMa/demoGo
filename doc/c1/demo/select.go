@@ -24,9 +24,12 @@ func main() {
 	fmt.Println("QUIT!")
 }
 
-/**
- *	fibo 斐波那契数列
- */
+//
+// fibo
+//  @Description:
+//  @param quit
+//  @param c
+//
 func fibo(quit chan int, c chan int) {
 
 	x, y := 0, 1
