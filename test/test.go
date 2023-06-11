@@ -1,20 +1,35 @@
 package main
 
-import "fmt"
+import "context"
 
 type Data struct {
 	name string
+}
+
+type TestInterface interface {
+	Method() int
+}
+
+func (data *Data) Method() (a int) {
+	return
 }
 
 func main() {
 	//var wg sync.WaitGroup
 
 	//fmt.Println(runtime.NumCPU())
-	var data Data
+	//var data Data
+	//
+	//fmt.Printf("%v\n", data)
+	//data.name = "dadada"
+	//
+	//fmt.Printf("%v\n", data)
 
-	fmt.Printf("%v\n", data)
-	data.name = "dadada"
+	todo := context.TODO()
 
-	fmt.Printf("%v\n", data)
+	cancel, cancelFunc := context.WithCancel(todo)
+
+	cancel.Value("")
+	cancelFunc()
 
 }
